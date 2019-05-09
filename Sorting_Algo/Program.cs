@@ -56,10 +56,6 @@ namespace Sorting_Algo
                     DisplayResult("Merge", merge);
                     break;
                 case 7:
-                    var radix = Performance<string, Tuple<string, int>>(Radix_Sort.Sort, sortargs.Item2);
-                    DisplayResult("Radix", radix);
-                    break;
-                case 8:
                     List<(string, int, string)> all = new List<(string, int, string)>();
                     bubble = Performance<string, Tuple<string, int>>(Bubble_Sort.Sort, sortargs.Item2);
                     selection = Performance<string, Tuple<string, int>>(Selection_Sort.Sort, sortargs.Item2);
@@ -67,7 +63,6 @@ namespace Sorting_Algo
                     quick = Performance<string, Tuple<string, int>>(Quick_Sort.Sort, sortargs.Item2);
                     heap = Performance<string, Tuple<string, int>>(Heap_Sort.Sort, sortargs.Item2);
                     merge = Performance<string, Tuple<string, int>>(Merge_Sort.Sort, sortargs.Item2);
-                    radix = Performance<string, Tuple<string, int>>(Radix_Sort.Sort, sortargs.Item2);
 
                     all.Add(ValueTuple.Create<string, int, string>("Bubble Sort", bubble.Item1.Item2, bubble.Item2));
                     all.Add(ValueTuple.Create<string, int, string>("Selection Sort", selection.Item1.Item2, selection.Item2));
@@ -75,7 +70,6 @@ namespace Sorting_Algo
                     all.Add(ValueTuple.Create<string, int, string>("Quick Sort", quick.Item1.Item2, quick.Item2));
                     all.Add(ValueTuple.Create<string, int, string>("Heap Sort", heap.Item1.Item2, heap.Item2));
                     all.Add(ValueTuple.Create<string, int, string>("Merge Sort", merge.Item1.Item2, merge.Item2));
-                    all.Add(ValueTuple.Create<string, int, string>("Radix Sort", radix.Item1.Item2, radix.Item2));
 
                     DisplayResult(all);
                     break;
@@ -105,8 +99,7 @@ namespace Sorting_Algo
             Console.WriteLine("4. Quick Sort");
             Console.WriteLine("5. Heap Sort");
             Console.WriteLine("6. Merge Sort");
-            Console.WriteLine("7. Radix Sort");
-            Console.WriteLine("8. Compare All Sorts");
+            Console.WriteLine("7. Compare All Sorts");
 
             Console.WriteLine();
             Console.Write("Choose Algo:");
@@ -115,7 +108,7 @@ namespace Sorting_Algo
             while (true)
             {
                 int.TryParse(Console.ReadLine(), out algo);
-                if (algo <= 0 || algo > 8)
+                if (algo <= 0 || algo > 7)
                 {
                     Console.WriteLine("Invalid Choice.Try again.");
                 }
